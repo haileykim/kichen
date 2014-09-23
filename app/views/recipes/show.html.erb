@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+<p>
+  
+  <%= image_for(@recipe) %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @recipe.name %>
+</p>
+
+<p>
+  <strong>Method:</strong>
+  <%= @recipe.method %>
+</p>
+
+<p>
+  <strong>Serving:</strong>
+  <%= @recipe.serving %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @recipe.source %>
+</p>
+
+<p>
+  <strong>Tip:</strong>
+  <%= @recipe.tip %>
+</p>
+
+<p>
+  <strong>Ingredients:</strong>
+    <% if @recipe.ingredients.any?  %>
+      <ul>
+        <% @recipe.ingredients.each do |ingredient|  %>
+          <li> <%= ingredient.food_item.name  %>: 
+            <%= ingredient.volume %>
+          </li>
+        <% end  %>
+      </ul>  
+    <% end  %>
+</p>
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>
