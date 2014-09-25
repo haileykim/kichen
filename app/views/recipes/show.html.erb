@@ -9,6 +9,11 @@
 </p>
 
 <p>
+  <strong>Description:</strong>
+  <%= @recipe.description %>
+</p>
+
+<p>
   <strong>Method:</strong>
   <%= @recipe.method %>
 </p>
@@ -23,17 +28,13 @@
   <%= @recipe.source %>
 </p>
 
-<p>
-  <strong>Tip:</strong>
-  <%= @recipe.tip %>
-</p>
 
 <p>
   <strong>Ingredients:</strong>
     <% if @recipe.ingredients.any?  %>
       <ul>
         <% @recipe.ingredients.each do |ingredient|  %>
-          <li> <%= ingredient.food_item.name  %>: 
+          <li> <%= ingredient.food_item.name %>: 
             <%= ingredient.volume %>
           </li>
         <% end  %>
