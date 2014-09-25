@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+    # delete me after git test
   end
 
   def show
