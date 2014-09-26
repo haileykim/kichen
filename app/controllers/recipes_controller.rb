@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    2.times { @recipe.ingredients.build.build_food_item }
+    2.times { @recipe.ingredients.build }
   end
 
   def edit
@@ -51,6 +51,6 @@ class RecipesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
       params.require(:recipe).permit(:name, :method, :serving, :source, :description, :image, 
-        ingredients_attributes: [:id, :food_name, :volume])
+        ingredients_attributes: [:id, :food_item_name, :volume])
     end
 end
