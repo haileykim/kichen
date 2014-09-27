@@ -1,4 +1,4 @@
-<%= form_for(@recipe) do |recipe_form| %>
+<%= form_for(@recipe) do |f| %>
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -13,44 +13,42 @@
 
   
   <div class="field">
-    <%= recipe_form.label :name %><br>
-    <%= recipe_form.text_field :name %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= recipe_form.label :description %><br>
-    <%= recipe_form.text_field :description %>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= recipe_form.label :image %><br>
-    <%= recipe_form.file_field :image %>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
   </div>
   <div class="field">
-    <%= recipe_form.label :source %><br>
-    <%= recipe_form.text_field :source %>
+    <%= f.label :source %><br>
+    <%= f.text_field :source %>
   </div>
 
   <div class="field">
-    <%= recipe_form.label :ingredients %><br>
+    <%= f.label :ingredients %><br>
   
-    <%= recipe_form.fields_for :ingredients do |ingredient_form| %>
-  
-      <%= ingredient_form.autocomplete_field :food_item_name, autocomplete_food_item_name_ingredients_path %>
-  
-      <%= ingredient_form.text_field :volume %><br>
+    <%= f.fields_for :ingredients do |builder| %>
+      <%= render 'ingredient_field', f: builder %>
     <% end %>
+    <%= link_to_add_fields "<span class='glyphicon glyphicon-plus'></span> Add Field".html_safe, f, :ingredients %>
   </div>
   
   <div class="field">
-    <%= recipe_form.label :method %><br>
-    <%= recipe_form.text_area :method %>
+    <%= f.label :method %><br>
+    <%= f.text_area :method %>
   </div>
   <div class="field">
-    <%= recipe_form.label :serving %><br>
-    <%= recipe_form.number_field :serving %>
+    <%= f.label :serving %><br>
+    <%= f.number_field :serving %>
   </div>
   
  
   <div class="actions">
-    <%= recipe_form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
