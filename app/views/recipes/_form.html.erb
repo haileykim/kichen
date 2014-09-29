@@ -20,7 +20,10 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
-  
+  <div class="field">
+    <%= f.label :tag %><br>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) %>
+  </div>
   <div class="field">
     <%= f.label :image %><br>
     <%= f.file_field :image %>

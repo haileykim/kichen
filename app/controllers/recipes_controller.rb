@@ -2,7 +2,11 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipes = Recipe.all
+    if params[:tag]
+      @recipes = Recipe.tagged_with(params[:tag])
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
@@ -50,7 +54,7 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :method, :tag_list, :serving, :source, :description, :image, 
+      params.require(:recipe).permit(:name, :method, :serving, :source, :description, :image, tag_ids: [],
         ingredients_attributes: [:id, :food_item_name, :volume, :_destroy])
     end
 end

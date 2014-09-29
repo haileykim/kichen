@@ -3,7 +3,7 @@ module RecipesHelper
   	if recipe.image.exists?
   		image_tag(recipe.image.url)
   	else
-  		image_tag('placeholder.png')
+  		image_tag('placeholder.jpeg')
   	end
   end
 end

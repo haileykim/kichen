@@ -1,5 +1,5 @@
 class Recipe < ActiveRecord::Base
-  validates :name, :method, :serving, presence: true
+ # validates :name, :method, :serving, presence: true
   has_attached_file :image
   validates_attachment :image, 
     :content_type => { :content_type => ['image/jpeg', 'image/png']},
@@ -10,4 +10,11 @@ class Recipe < ActiveRecord::Base
 
   has_many :food_items, through: :ingredients
 
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
+
+  def self.tagged_with(name)
+    Tag.find_by!(name: name).recipes
+  end
+  
 end
