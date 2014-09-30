@@ -37,7 +37,7 @@
     <%= f.label :ingredients %><br>
   
     <%= f.fields_for :ingredients do |builder| %>
-      <%= render 'ingredient_field', f: builder %>
+      <%= render 'ingredient_fields', f: builder %>
     <% end %>
     <%= link_to_add_fields "<span class='glyphicon glyphicon-plus'></span> Add Field".html_safe, f, :ingredients %>
   </div>

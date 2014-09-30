@@ -4,13 +4,15 @@ class RecipesController < ApplicationController
   def index
     if params[:tag]
       @recipes = Recipe.tagged_with(params[:tag])
+    elsif params[:ingredient]
+      @recipes = Recipe.with_ingredient(params[:ingredient])
     else
       @recipes = Recipe.all
     end
   end
 
   def show
-    
+    @ingredients = @recipe.ingredients
   end
 
   def new
@@ -19,6 +21,9 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    if @recipe.ingredients.empty?
+      3.times { @recipe.ingredients.build }
+    end
   end
 
 

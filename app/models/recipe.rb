@@ -16,5 +16,9 @@ class Recipe < ActiveRecord::Base
   def self.tagged_with(name)
     Tag.find_by!(name: name).recipes
   end
-  
+
+  def self.with_ingredient(name)
+    FoodItem.find_by!(name: name).recipes
+  end
+
 end

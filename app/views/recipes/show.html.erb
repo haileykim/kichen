@@ -15,7 +15,7 @@
 
 <p>
   <strong>Tags:</strong>
-  <%= raw @recipe.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(' ') %>
+  <%= tags_for(@recipe) %>
 </p>
 
 <p>
@@ -36,10 +36,10 @@
 
 <p>
   <strong>Ingredients:</strong>
-    <% if @recipe.ingredients.any?  %>
+    <% if @ingredients.any?  %>
       <ul>
-        <% @recipe.ingredients.each do |ingredient|  %>
-          <li> <%= ingredient.food_item.name %>: 
+        <% @ingredients.each do |ingredient|  %>
+          <li> <%= link_to ingredient.food_item.name, ingredient_path(ingredient.food_item.name) %>: 
             <%= ingredient.volume %>
           </li>
         <% end  %>

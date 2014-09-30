@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     resources :ingredients
   end
 
-  get ' tags/:tag' => 'recipes#index', as: :tag
+  get 'tags/:tag' => 'recipes#index', as: :tag
+  get 'ingredients/:ingredient' => 'recipes#index', as: :ingredient
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
