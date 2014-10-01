@@ -2,13 +2,11 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:tag]
-      @recipes = Recipe.tagged_with(params[:tag])
-    elsif params[:ingredient]
-      @recipes = Recipe.with_ingredient(params[:ingredient])
-    else
-      @recipes = Recipe.all
-    end
+    @tags = Tag.with_recipes_count
+    @recipes = Recipe.where(nil)
+    @recipes = @recipes.search(params[:search]) if params[:search]
+    @recipes = @recipes.tagged_with(params[:tag]) if params[:tag]
+    @recipes = @recipes.with_ingredient(params[:ingredient]) if params[:ingredient]
   end
 
   def show
@@ -59,7 +57,7 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :method, :serving, :source, :description, :image, tag_ids: [],
+      params.require(:recipe).permit(:name, :method, :serving, :source, :description, :image, tag_ids: [], 
         ingredients_attributes: [:id, :food_item_name, :volume, :_destroy])
     end
 end

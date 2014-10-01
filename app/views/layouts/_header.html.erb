@@ -9,6 +9,17 @@
             <li><%= link_to "Recipes", recipes_path %></li>
             <li><%= link_to "Add New", new_recipe_path %></li>
           </ul>
+
+<!-- Search Bar -->
+        <div class="navbar-form navbar-left">
+        <div class="form-group">
+          <%= form_tag recipes_path, method: :get do %>
+            <%= search_field_tag :search, params[:search], placeholder: 'Search recipe', class: "form-control" %>
+          <% end %>
+        </div>
+        </div>
+
+
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Sign In</a></li>
           </ul>

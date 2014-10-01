@@ -21,4 +21,7 @@ class Recipe < ActiveRecord::Base
     FoodItem.find_by!(name: name).recipes
   end
 
+  def self.search(search)
+    where(arel_table[:name].matches("%#{search}%"))
+  end
 end
