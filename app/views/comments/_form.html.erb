@@ -1,0 +1,27 @@
+ <!-- Form for New Comment -->
+<div>
+  <% if current_user %>
+    <%= form_for @comment, url: recipe_comments_path(@recipe), id: 'new_comment_form', remote: true do |f| %>
+    <form class="form-horizontal" role="form">
+      <div class="media">
+        <a class="pull-left" href="#">
+          <%= image_tag(gravatar_url(current_user), width: 38, class: "img-circle") %>
+        </a>
+        <div class="media-body">
+          <div class="form-group">
+            <div class="input-group">
+              <%= f.text_field :content, size: 70 %>
+              <%= f.submit value: 'Add Comment', class: 'btn btn-default' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <% end %>
+
+    <% else %>
+    <p>You need to be logged in to leave comments. Go to <%= link_to 'log in', login_path %>.</p>
+  <% end %>
+</div>
+
+  <!-- End Form -->

@@ -1,11 +1,14 @@
 <h1>Listing recipes</h1>
 
+
 <p>
   <% @tags.each do |tag| %>
   <h4> <%= link_to tag.name, tag_path(tag.name) %>
        (<%= tag.recipes_count %>)</h4>
   <% end  %>
 </p>
+
+
 <table>
   <thead>
     <tr>

@@ -1,0 +1,19 @@
+<div class="col-md-2">
+	<%= image_tag(gravatar_url(@user), width: 120, class: "img-circle") %>
+</div>
+
+<div class="col-md-10">
+	<h1><%= full_name_of(@user) %></h1>
+	
+	<h3>Recipes Created (<%= @recipes.count %>)</h3>
+		<% @recipes.each do |recipe| %>
+			<div><%= link_to recipe.name, recipe %></div>
+		<% end %>
+	
+	
+	<h3>My Favs (<%= @favorites.count %>)</h3>
+		<% @favorites.each do |favorite| %>
+			<div><%= link_to favorite.name, favorite %></div>
+		<% end %>
+	
+</div>

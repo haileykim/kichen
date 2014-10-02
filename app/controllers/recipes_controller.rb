@@ -1,8 +1,10 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipe, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @tags = Tag.with_recipes_count
+    @food_items = FoodItem.all
     @recipes = Recipe.where(nil)
     @recipes = @recipes.search(params[:search]) if params[:search]
     @recipes = @recipes.tagged_with(params[:tag]) if params[:tag]
@@ -10,7 +12,16 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @ingredients = @recipe.ingredients
+    @recipe = Recipe.includes(:user, :ingredients, :food_items, :comments, :favorites, :fans).find(params[:id])
+    @comment = @recipe.comments.new
+
+   # Because @recipe already includes its associated entities, no more need the followings. 
+   # @comments = @recipe.comments
+   # @fans = @recipe.fans
+
+    if current_user
+      @current_favorite = current_user.favorites.find_by(recipe_id: @recipe.id)
+    end
   end
 
   def new

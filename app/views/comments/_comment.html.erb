@@ -1,0 +1,21 @@
+
+    <div class="media">
+      <a class="pull-left" href="#">
+        <%= image_tag(gravatar_url(comment.user), width: 38, class: "img-circle") %>
+      </a>
+      <div class="media-body">
+        <div class="media-heading">
+          <strong><%= link_to comment.user.first_name, comment.user %></strong>
+        </div> 
+        <p>
+          <%= comment.content %>
+          <span class="muted"><%= time_ago_in_words(comment.created_at) %> ago.</span>
+          
+          <% if current_user == comment.user %>
+          <span style="font-size:12px;">
+            <%= link_to 'Delete', recipe_comment_path(@recipe, comment), method: :delete, remote: true %>  
+          </span>
+          <% end %>
+        </p>
+      </div>
+    </div>
