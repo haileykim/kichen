@@ -1,0 +1,26 @@
+<%= form_for @food_item, url: admins_food_item_path do |f| %>
+<form class="form-horizontal" role="form">
+  <% if @food_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@food_item.errors.count, "error") %> prohibited this FoodItem from being saved:</h2>
+
+      <ul>
+      <% @food_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h3>Name</h3>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: 'btn btn-lg btn-primary' %>
+  </div>
+
+</form>
+<% end %>

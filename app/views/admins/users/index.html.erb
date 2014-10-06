@@ -1,0 +1,43 @@
+<h1>Admin:Users</h1>
+
+<div class="row">
+
+	<div class="col-md-11">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Full Name</th>
+					<th>Email</th>
+					<th>Recipes Created</th>
+					<th>Comments Left</th>
+					<th>Signin Count</th>
+					<th>Signup Date</th>
+					<th>Last Signin IP</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @users.each do |user| %>
+				<tr>
+					<td><%= user.id %></td>
+					<td><%= link_to full_name_of(user), user_path(user) %></td>
+					<td><%= user.email %></td>
+					<td><%= user.recipes.count %></td>
+					<td><%= user.comments.count %></td>
+					<td><%= user.sign_in_count %></td>
+					<td><%= user.created_at %></td>
+					<td><%= user.last_sign_in_ip %></td>
+					<td><%= link_to 'Edit', edit_admins_user_path(user) %> <%= link_to 'Delete', '' %></td>
+				</tr>
+			</tbody>
+			<% end %>
+		</table>
+		<div><%= will_paginate @users %></div>
+	</div>
+
+<div class="col-md-1">
+	<%= render 'admins/nav' %>
+</div>
+
+</div>

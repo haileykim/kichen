@@ -1,0 +1,67 @@
+<%= form_for @recipe, url: admins_recipe_path do |f| %>
+<form class="form-horizontal" role="form">
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h3>Recipe Meta</h3>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :method %><br>
+    <%= f.text_area :method, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :source %><br>
+    <%= f.text_field :source, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :serving %><br>
+    <%= f.text_field :serving, class: 'form-control' %>
+  </div>
+
+  <hr>
+   <h3>Ingredients</h3>
+  <!-- Begin form for recipe's ingredients -->
+    <%= f.fields_for :ingredients do |i| %>
+      <div class="form-group">
+        <%= i.fields_for :food_item do |builder| %>
+          <%= builder.text_field :name, placeholder: 'Food Item' %>
+        <% end %>
+        
+        <%= i.text_field :volume, placeholder: 'Volume' %>
+        <%= i.check_box :_destroy %>
+
+        <%= f.label :_destroy, "Remove Ingredient" %>
+      </div>
+    <% end %>
+
+
+  <div class="actions">
+    <%= f.submit class: 'btn btn-lg btn-primary' %>
+  </div>
+
+</form>
+<% end %>
