@@ -46,3 +46,5 @@ gem 'byebug'
 
 # Use figaro to store sensitive data
 gem 'figaro'
+
+gem 'event_tracker'

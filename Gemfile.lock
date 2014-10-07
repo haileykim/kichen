@@ -27,7 +27,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    analytics-ruby (2.0.10)
     arel (5.0.1.20140414130214)
     autoprefixer-rails (3.1.0.20140911)
       execjs
@@ -64,6 +63,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    event_tracker (0.3.0)
+      rails (>= 3.0)
     execjs (2.2.1)
     faker (1.4.3)
       i18n (~> 0.5)
@@ -163,7 +164,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  analytics-ruby (~> 2.0.0)
   autoprefixer-rails
   aws-sdk
   bcrypt (~> 3.1.7)
@@ -171,6 +171,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.0.0)
   devise
+  event_tracker
   faker (~> 1.4.2)
   figaro
   jbuilder (~> 2.0)
