@@ -1,5 +1,14 @@
 <% @user ||= current_user  %>
 
+<script>
+  analytics.track('Viewed Recipe', {
+  recipe_id: <%= @recipe.id %>,
+  recipe_name: <%= @recipe.name %>
+  author: <%= @recipe.user_id %>
+}); 
+</script>
+
+
 <h5>Fans (<%= @recipe.fans.count %>)</h5>
       <% unless @recipe.fans.empty? %>
       <% @recipe.fans.each do |fan| %>

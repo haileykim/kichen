@@ -46,4 +46,4 @@ gem 'byebug'
 
 gem 'figaro'
 
-
+gem 'analytics-ruby', '~> 2.0.0', :require => 'segment/analytics'
