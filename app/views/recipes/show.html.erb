@@ -1,4 +1,10 @@
 <% @user ||= current_user  %>
+<script>
+  mixpanel.track("Viewed Recipe", { 
+    "Recipe ID": <%= @recipe.id %>,
+    "Recipe Name": <%= @recipe.name %>
+  });
+</script>
 
 <h5>Fans (<%= @recipe.fans.count %>)</h5>
       <% unless @recipe.fans.empty? %>

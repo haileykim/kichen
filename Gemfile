@@ -44,6 +44,6 @@ gem 'will_paginate'
 # Use byebug instead of Debugger, for the latter is not compatible with Ruby 2.1.x
 gem 'byebug'
 
+# Use figaro to store sensitive data
 gem 'figaro'
-
 

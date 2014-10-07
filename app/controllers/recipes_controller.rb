@@ -14,6 +14,8 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.includes(:user, :ingredients, :food_items, :comments, :favorites, :fans).find(params[:id])
     @comment = @recipe.comments.new
+    # Track an event on behalf of user "User1"
+    
 
    # Because @recipe already includes its associated entities, no more need the followings. 
    # @comments = @recipe.comments
