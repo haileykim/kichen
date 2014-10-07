@@ -1,14 +1,19 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+
+  around_filter :append_event_tracking_tags
   
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
 
-  def meta_events_tracker
-    @meta_events_tracker ||= MetaEvents::Tracker.new(current_user.try(:id), request.remote_ip)
+  def mixpanel_distinct_id
+    # current_visitor_id not defined. Fix me.
+    # current_visitor_id
+  end
+
+  def mixpanel_name_tag
+    current_user && current_user.email
   end
 
   def configure_permitted_parameters

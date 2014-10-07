@@ -35,6 +35,8 @@ class RecipesController < ApplicationController
     if @recipe.ingredients.empty?
       3.times { @recipe.ingredients.build }
     end
+    # Event tracking
+    track_event "Editing recipe"
   end
 
 
@@ -43,6 +45,8 @@ class RecipesController < ApplicationController
 
     if @recipe.save
       redirect_to @recipe, notice: 'Recipe was successfully created.'
+      # Event tracking
+      track_event "Recipe created"
     else
       render :new
     end

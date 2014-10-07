@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :admins, only: :index
   
-    namespace :admins do
+  namespace :admins do
     resources :recipes
     resources :food_items
     resources :comments
