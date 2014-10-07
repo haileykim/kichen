@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def meta_events_tracker
+    @meta_events_tracker ||= MetaEvents::Tracker.new(current_user.try(:id), request.remote_ip)
+  end
+
   def configure_permitted_parameters
   	devise_parameter_sanitizer.for(:sign_up) << :first_name
   	devise_parameter_sanitizer.for(:sign_up) << :last_name

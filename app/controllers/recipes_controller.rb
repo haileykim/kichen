@@ -15,6 +15,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.includes(:user, :ingredients, :food_items, :comments, :favorites, :fans).find(params[:id])
     @comment = @recipe.comments.new
 
+    
+
    # Because @recipe already includes its associated entities, no more need the followings. 
    # @comments = @recipe.comments
    # @fans = @recipe.fans
