@@ -1,8 +1,8 @@
 <% @user ||= current_user  %>
-<script>
+<script type="text/javascript">
   mixpanel.track("Viewed Recipe", { 
-    "Recipe ID": <%= @recipe.id %>,
-    "Recipe Name": <%= @recipe.name %>
+    "Recipe ID": '<%= @recipe.id %>',
+    "Recipe Name": '<%= @recipe.name %>'
   });
 </script>
 
