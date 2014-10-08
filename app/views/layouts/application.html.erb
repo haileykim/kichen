@@ -21,11 +21,15 @@
 
   <script>
     mixpanel.identify(<%= current_user.id %>);
+    mixpanel.people.set(
+      "$email": <%= current_user.email %>, 
+      "$name": <%= full_name_of(current_user) %>, 
+      "id": <%= current_user.id %>, 
+      "$created": <%= current_user.created_at %>,
+      "$set": {
+        "recipes created": <%= current_user.recipes.count %>
+      });
   </script>
-  <% if current_user %>  
-    <% mixpanel_people_set(email: current_user.email, name: full_name_of(current_user), id: current_user.id, created_at: current_user.created_at) %>
-  <% end %>
-
 
 </body>
 </html>
