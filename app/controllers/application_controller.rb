@@ -16,15 +16,6 @@ class ApplicationController < ActionController::Base
     current_user && current_user.email
   end
 
-  def set_mixpanel_people
-    if current_user
-      mixpanel_people_set({
-        "$email" => current_user.email,
-        "$full_name" => full_name_of(current_user),
-        "$created_at" => current_user.created_at
-        })
-    end
-  end
 
   def configure_permitted_parameters
   	devise_parameter_sanitizer.for(:sign_up) << :first_name
