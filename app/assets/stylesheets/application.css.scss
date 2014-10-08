@@ -17,6 +17,8 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+
 
 html {
   position: relative;
@@ -24,12 +26,17 @@ html {
 }
 
 body {
-	padding-top: 60px;
-	background: #efefef;
+    padding-top: 60px;
+	background: #ebe8dc;
+	font-size: 16px;
+	font-family: 'Nanum Gothic';
 }
 
 .container#body {
 	padding-bottom: 80px;
+}
+.container {
+	width: 1200px;
 }
 
 hr {
@@ -40,25 +47,149 @@ ul {
 	list-style-type: none;
 }
 
-/* layout header nav */
-
-.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand { 
-	color: pink;
-	font-weight: lighter;
-	font-size: 24px;
+h1 {
+	font-size: 48px;
+	font-weight: 200;
 }
 
-/* redefine navbar color theme */
-.navbar-inverse {
-	background-color: #DB4343;
-	border-color: #B8B8B8;
+/* layout header nav */
+
+.navbar .container {
+	margin-left: 0;
+	margin-right: 0;
+	width: 100%;
+}
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand { 
+    font-family: 'Lobster', cursive; 
+	font-size: 30px;
+	color: #ffffff;
+	margin-left: 15px;
+	padding-right: 30px;
+	box-shadow: inset -1px 0 1px -1px rgba(255,255,255,.5);
+}
+
+.navbar-brand {
+    line-height: 32px;
+    height: 65px;
 }
 
 .navbar-inverse .navbar-nav > li > a {
-	color: #DDD;
-	font-weight: 300;
+	display: block;
+	color: #ffffff;
+	padding: 22px;
+
 }
-/* */
+
+.navbar-inverse {
+	background-color: #D64B3E;
+	border: none;
+	box-shadow: 0 3px 6px rgba(0,0,0,.16);
+}
+
+/* Redesign search bar */
+
+.archive-search-text {
+position: relative;
+width: 100%;
+float: left;
+border-radius: 40px;
+font-weight: 300;
+border: 1px solid #ccc;
+-webkit-transition: all .3s ease-in-out;
+transition: all .3s ease-in-out;
+color: #222;
+}
+
+.navbar-form {
+	margin-top: 14px;
+}
+
+/* Home */
+
+#rotate_bg {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	display: none;
+	z-index: 0;
+}
+
+#rotate_bg img {
+  	width: 100%;
+  	z-index: 0;
+  	min-width: 1600px;
+}
+
+#oven {
+	margin: 0 auto;
+	position: relative;
+	z-index: 2;
+	padding: 18px 0;
+	color: #FFFFFF;
+}
+
+#oven #logo {
+  background: 0 0;
+  padding: 60px 0 0;
+  font-size: 42px;
+  width: 500px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+ }
+
+#oven #button {
+  background: 0 0;
+  padding: 40px 0 0;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 50px;
+ }
+
+.btn-xlg {
+padding: 15px 30px;
+font-size: 20px;
+line-height: 1.33;
+border-radius: 6px;
+}
+
+.promos-wrapper {
+	position: relative;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+.promos-wrapper .promos-section-wrapper {
+    background-color: #ebe8dc;
+	box-shadow: inset 0 3px 12px rgba(0,0,0,.1)
+}
+
+.promos-section-wrapper .promos-section-inner-wrapper {
+width: 1155px;
+padding: 0 15px 50px 25px;
+max-width: 1440px;
+margin: auto;
+}
+
+.promos-section-inner-wrapper .section {
+padding: 50px 0 0 9px;
+position: relative;
+top: -35px;
+}
+
+.promos-section-inner-wrapper .section .header {
+	padding: 0 0 15px 3px;
+	color: #333;
+	font-size: 30px;
+}
+
+
+
+
+
 
 .admin_console {
 	padding-top: 15px;

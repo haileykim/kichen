@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'static_pages#home'
+
   resources :admins, only: :index
   
     namespace :admins do
@@ -27,7 +29,6 @@ Rails.application.routes.draw do
 
   resources :food_items
 
-  root 'recipes#index'
   resources :recipes do 
     resources :ingredients
     resources :favorites, only: [:create, :destroy]

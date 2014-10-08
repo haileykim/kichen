@@ -1,0 +1,44 @@
+<!-- Jumbotron -->
+<div id="rotate_bg" style="display: block;">
+  <%= image_tag('cooking.png') %>
+</div>
+<div id="worktop">
+  <div id="oven">
+    <div id="logo">
+      당신의 보물 레시피 <br>
+      이제 잊지말고 기록하세요!
+    </div>
+    <div id="button">
+      <a class="btn btn-xlg btn-danger" href="/signup" role="button">시작하기</a>
+   </div>
+  </div>
+
+  <div class="promos-wrapper">
+    <div class="promos-section-wrapper">
+      <div class="promos-section-inner-wrapper">
+        <div class="section">
+          
+          <div class="grid-list-container">
+             <div class="grid-list">
+                <% @recipes.each do |recipe| %>
+                <div class="recipe-item">
+                  <div class="grid-item-inner">
+                    <a href="./recipes/<%= recipe.id %>">
+                      <div class="recipe-item-image">
+                      <%= image_for(recipe) %>
+                      </div>
+                    </a>
+                    <ul class="recipe-item-meta">
+                      <li><%= truncate(recipe.name, length: 24) %></li>
+                    </ul>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+          </div>
+
+      </div>
+   </div>
+   </div>
+  </div>  
+</div>

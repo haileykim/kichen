@@ -19,6 +19,16 @@ module ApplicationHelper
   end
 
   def full_name_of(user)
-  	user.first_name + ' ' + user.last_name unless user.first_name.blank? && user.last_name.blank?
+  	user.last_name + ' ' + user.first_name unless user.first_name.blank? && user.last_name.blank?
   end
+
+  def full_name_with_gravatar(user)
+    image_tag(gravatar_url(user), width: 20, class: "img-circle") + ' ' +
+    full_name_of(user)
+  end
+
+  def is_active?(link_path)
+    current_page?(link_path) ? "active" : ""
+  end
+
 end

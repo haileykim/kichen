@@ -38,6 +38,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
 
     if @recipe.save
       redirect_to @recipe, notice: 'Recipe was successfully created.'
@@ -68,7 +69,7 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :method, :serving, :source, :description, :image, tag_ids: [], 
+      params.require(:recipe).permit(:name, :method, :serving, :user, :source, :description, :image, tag_ids: [], 
         ingredients_attributes: [:id, :food_item_name, :volume, :_destroy])
     end
 end

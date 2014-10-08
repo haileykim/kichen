@@ -1,72 +1,58 @@
 <% @user ||= current_user  %>
 
-<h5>Fans (<%= @recipe.fans.count %>)</h5>
-      <% unless @recipe.fans.empty? %>
-      <% @recipe.fans.each do |fan| %>
-        <div>
-          <span><%= link_to fan.first_name, fan %></span>
-        </div>
-      <% end %>
-      <% end %>
 
-<% unless @user.nil? %>
-    <% if @user.saved_to_favorites?(@recipe) %>
-      <div>
-        <%= button_to "Remove from Fav", recipe_favorite_path(@recipe, @current_favorite), method: :delete, class: 'btn btn-default' %>
-      </div>
-    <% else %>
-      <div>
-        <%= button_to "Add to Fav", recipe_favorites_path(@recipe), class: 'btn btn-primary' %>
-      </div>
-    <% end %>
-<% end  %>
 
-<p>
-  <%= image_for(@recipe) %>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
-</p>
+<section class="teaser">
+  <ul class="carousel">
+    <li class="responsive-image image-loaded" style="background-image: url(<%= @recipe.image %>);">
+    <div class="wrapper">
+        <h1><%= @recipe.name %></h1>
+        <%= link_to full_name_with_gravatar(@recipe.user), @recipe.user %>
+    </div>
+  </ul>
+</section>
+<div style="clear:both"></div>
+        
 
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
+
+<div class="wrap rec-heading">
+  <div class="rec-main">
+      <h3>Instructions</h3>
+      <p>
+        <%= @recipe.method %>
+      </p>
+      <span style="font-size:16px;">참고 | <%= @recipe.source %></span>
+      
+  </div>
+  <div class="rec-sidebar">
+      <h3>Ingredients</h3>
+      <% if @recipe.ingredients.any?  %>
+      <ul>
+        <% @recipe.ingredients.each do |ingredient|  %>
+          <li> <%= link_to ingredient.food_item.name, ingredient_path(ingredient.food_item.name) %> 
+            <%= ingredient.volume %>
+          </li>
+        <% end  %>
+      </ul>  
+    <% end  %>
+  </div>
+</div>
+
 
 <p>
   <strong>Tags:</strong>
   <%= tags_for(@recipe) %>
 </p>
 
-<p>
-  <strong>Method:</strong>
-  <%= @recipe.method %>
-</p>
 
 <p>
   <strong>Serving:</strong>
   <%= @recipe.serving %>
 </p>
 
-<p>
-  <strong>Source:</strong>
-  <%= @recipe.source %>
-</p>
 
 
-<p>
-  <strong>Ingredients:</strong>
-    <% if @recipe.ingredients.any?  %>
-      <ul>
-        <% @recipe.ingredients.each do |ingredient|  %>
-          <li> <%= link_to ingredient.food_item.name, ingredient_path(ingredient.food_item.name) %>: 
-            <%= ingredient.volume %>
-          </li>
-        <% end  %>
-      </ul>  
-    <% end  %>
-</p>
+
 
 <% if @user.try(:admin?) %>
     <div class="admin_console">
@@ -116,3 +102,19 @@
   <% end %>
 
  <%= render 'comments/form' %>
+
+
+
+<% unless @user.nil? %>
+    <% if @user.saved_to_favorites?(@recipe) %>
+      <div>
+        <%= button_to "Remove from Fav", recipe_favorite_path(@recipe, @current_favorite), method: :delete, class: 'btn btn-default' %>
+      </div>
+    <% else %>
+      <div>
+        <%= button_to "Add to Fav", recipe_favorites_path(@recipe), class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+<% end  %>
+
+
