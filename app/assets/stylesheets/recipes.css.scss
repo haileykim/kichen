@@ -243,12 +243,17 @@ margin-top: 0;
 margin-bottom: 0;
 max-width: 1200px;
 font-size: 18px;
+	.archive-subcats {
+	margin: 15px 0px 15px 0px;
+	padding-left: 0px;
+	}
 }
 
 .rec-heading {
 border-bottom: 1px solid #ddd;
 overflow: hidden;
 line-height: 1.8;
+padding-bottom: 30px;
 }
 
 .rec-main {
@@ -273,6 +278,12 @@ padding-bottom: 1.25rem;
 
   ul {
   padding-left: 0px;
+  padding-top: 15px;
+  }
+
+  a {
+  color: #333;
+  font-weight: bold;
   }
 }
 
@@ -282,6 +293,13 @@ letter-spacing: .2rem;
 text-align: left;
 font-weight: 200;
 color: #D64B3E;
-font-size: 22px;
+font-size: 24px;
 margin-bottom: 15px;
+}
+
+.fans {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  display: inline-block;
+  margin-right: 5px;
 }
