@@ -138,13 +138,19 @@ list-style: none;
 background: #fff;
 padding: 1.125rem .9375rem;
 overflow: hidden;
+
+  li {
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  a, a:hover {
+    color: #333;
+    text-decoration: none;
+  }
 }
 
-.recipe-item-meta li {
-float: left;
-font-size: 18px;
-font-weight: bold;
-}
 
 /* Show */
 
@@ -259,7 +265,7 @@ padding-bottom: 30px;
 .rec-main {
 position: relative;
 padding-left: .9375rem;
-padding-right: 30px;
+padding-right: 40px;
 width: 66.66667%;
 margin-left: 4.16667%!important;
 float: left;
@@ -297,9 +303,141 @@ font-size: 24px;
 margin-bottom: 15px;
 }
 
-.fans {
+.fan {
   margin-top: 10px;
   margin-bottom: 15px;
   display: inline-block;
   margin-right: 5px;
+}
+
+/* Comments */
+
+.media-heading a {
+  color: #333;
+}
+
+.media-body {
+
+  p {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    border-radius: 6px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    background: #fff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+  }
+
+  .input-group {
+    width: 100%;
+  }
+
+  .form-control {
+    font-size: 16px;
+    padding: 20px;
+  }
+}
+
+.comment-login {
+  text-align: center;
+  margin: 30px auto;
+  font-weight: bold;
+}
+
+/* New */
+
+.main-container {
+  margin: 15px 0px 0px 0px;
+  padding: 10px 0;
+
+  .input-choice {
+    margin-bottom: 30px;
+
+    .column1 {
+      width: 20%;
+      margin: 0 10px 5px 0;
+      display: inline-block;
+      float: left;
+      padding-top: 10px;
+    }
+
+    .column2 {
+      width: 77%;
+      margin-right: 10px;
+      display: inline-block;
+      max-width: none;
+
+      a, a:hover {
+        color: #D64B3E;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.text-field {
+  position: relative;
+  width: 100%;
+  float: left;
+  border-radius: 5px;
+  font-weight: 300;
+  border: 1px solid #ccc;
+  color: #222;
+  height: 40px;
+  padding: 6px 12px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.file-field {
+  position: relative;
+  width: 100%;
+  float: left;
+  border-radius: 5px;
+  font-weight: 300;
+  color: #222;
+  height: 40px;
+  padding-top: 6px;
+}
+
+.ingredient-field {
+  position: relative;
+  width: 30%;
+  float: left;
+  border-radius: 5px;
+  font-weight: 300;
+  border: 1px solid #ccc;
+  color: #222;
+  height: 40px;
+  padding: 6px 12px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+.remove_fields {
+  margin-left: 10px;
+}
+
+.add-fields {
+  color: #D64B3E;
+  margin-left: 10px;
+}
+
+textarea {
+  position: relative;
+  width: 100%;
+  float: left;
+  border-radius: 5px;
+  font-weight: 300;
+  border: 1px solid #ccc;
+  color: #222;
+  padding: 6px 12px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.submit-box {
+  text-align: center;
+  margin: 50px 0px;
 }

@@ -1,3 +1,31 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.wrapper-home {
+	-webkit-box-sizing: border-box;
+	position: relative;
+	padding: 130px 0;
+	margin: auto;
+	z-index: 111;
+	max-width: 600px;
+	text-align: center;
+	vertical-align: middle;
+	overflow: hidden;
+	color: #ffffff;
+	h1 {
+	line-height: 1.5;
+	margin-bottom: 50px;
+	}
+}
+
+.rec-wide {
+	position: relative;
+	padding-left: .9375rem;
+	padding-right: 40px;
+	width: 100%;
+	margin-left: 4.16667% !important;
+	float: left;
+	padding-top: 2.5rem;
+	padding-bottom: 0;
+}

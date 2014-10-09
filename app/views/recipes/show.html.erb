@@ -32,90 +32,99 @@
     </p>
   </div>
 
-<!--  Add to Fav -->
   <div class="rec-sidebar">
     <h3>Add to Fav</h3>
+<!--  Fan Box -->
       <% if @recipe.fans.any?  %>
-      <div class="fans">
         <% @recipe.fans.each do |fan| %>
-        <%= image_tag(gravatar_url(fan), width: 50, class: "img-circle")%>
-        
-      </div>
-      <% end  %>
+          <div class="fan">
+            <%= image_tag(gravatar_url(fan), width: 50, class: "img-circle")%>
+          </div>
+        <% end  %>
       <% else  %>
-      <p>아직 팬이 없습니다.</p>
+        <p>아직 팬이 없습니다.</p>
       <% end %>
-      
+
+<!--  Add to Fav Button -->
       <% unless @user.nil? %>
         <% if @user.saved_to_favorites?(@recipe) %>
           <div>
-           <%= button_to "저장 취소하기", recipe_favorite_path(@recipe, @current_favorite), method: :delete, class: 'btn btn-lg btn-default' %>
+            <%= button_to "저장 취소하기", recipe_favorite_path(@recipe, @current_favorite), method: :delete, class: 'btn btn-lg btn-default' %>
           </div>
-          <% else %>
-           <div>
-           <%= button_to '레시피 저장하기', recipe_favorites_path(@recipe), class: 'btn btn-lg btn-danger' %>
-           </div>
-          <% end %>
+        <% else %>
+          <div>
+            <%= button_to '레시피 저장하기', recipe_favorites_path(@recipe), class: 'btn btn-lg btn-danger' %>
+          </div>
+        <% end %>
       <% end %>
   </div>
 
 <div class="wrap rec-heading">
+<!--  Instructions -->
   <div class="rec-main">
-      <h3>Instructions</h3>
+    <h3>Instructions</h3>
       <p>
         <%= @recipe.method %>
       </p>
-      <span style="font-size:16px;">참고 | <%= @recipe.source %></span>
-  </div>
+      <% unless @recipe.source.blank?  %> 
+        <span style="font-size:16px;">참고 | <%= @recipe.source %></span>
+      <% end  %>
 
-  <div class="rec-sidebar">
-      <h3>Ingredients</h3>
-      <strong>+ <%= @recipe.serving %>인분</strong>
-      <% if @recipe.ingredients.any?  %>
-      <ul>
-        <% @recipe.ingredients.each do |ingredient|  %>
-          <li> <%= link_to ingredient.food_item.name, ingredient_path(ingredient.food_item.name) %> 
-            <%= ingredient.volume %>
-          </li>
-        <% end  %>
-      </ul>  
-    <% end  %>
-  </div>
-</div>
-
-<% if @user.try(:admin?) %>
+<!--  Edit/Destroy -->
+    <% if @user.try(:admin?) %>
     <div class="admin_console">
       <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
       <%= link_to 'Destroy', @recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
-  <% end %>
+    <% end %>  
+  </div>
 
-<div class="row">
-  <div id="comments_count">
-    <h4><%= pluralize(@recipe.comments.count, 'comment') %></h4>
+<!--  Ingredients -->
+  <div class="rec-sidebar">
+    <h3>Ingredients</h3>
+    <strong>+ <%= @recipe.serving %>인분</strong>
+    <% if @recipe.ingredients.any?  %>
+      <ul> 
+        <% @recipe.ingredients.each do |ingredient|  %>
+        <li> <%= link_to ingredient.food_item.name, ingredient_path(ingredient.food_item.name) %> 
+            <%= ingredient.volume %>
+        </li>
+        <% end  %>
+      </ul>   
+    <% end  %>
   </div>
 </div>
 
-  <% unless @recipe.comments.blank? %>
-  <div class="row">
-    <div id="comments_list">
-      <% @recipe.comments.each do |comment| %>
+<!--  Comment -->
+
+<div class="wrap rec-heading">
+  <div class="rec-main">
+
+    <div id="comments_count">
+      <h3><%= pluralize(@recipe.comments.count, 'comment') %></h3>
+    </div>
+  
+    <% unless @recipe.comments.blank? %>
+      <div class="row">
+        <div id="comments_list">
+        <% @recipe.comments.each do |comment| %>
         <% unless comment.user.blank? %>
-      <div class="media" id="comment-id-<%= comment.id %>">
+        <div class="media" id="comment-id-<%= comment.id %>">
         <a class="pull-left" href="#">
-          <%= image_tag(gravatar_url(comment.user), width: 38, class: "img-circle") %>
+          <%= image_tag(gravatar_url(comment.user), width: 50, class: "img-circle") %>
         </a>
         <div class="media-body">
           <div class="media-heading">
-            <strong><%= link_to comment.user.first_name, comment.user %></strong>
+            <strong><%= link_to full_name_of(comment.user), comment.user %></strong>
           </div> 
           <p>
             <%= comment.content %>
+            <br>
             <span class="muted"><%= time_ago_in_words(comment.created_at) %> ago</span>
             
             <% if @user == comment.user %>
             <span style="font-size:12px;">
-              <%= link_to 'Delete', recipe_comment_path(@recipe, comment), method: :delete, remote: true %>  
+              <%= link_to '삭제', recipe_comment_path(@recipe, comment), method: :delete, remote: true %>  
             </span>
             <% end %>
           </p>
@@ -128,8 +137,8 @@
   <% end %>
 
  <%= render 'comments/form' %>
-
-
+</div>
+</div>
 
 
 

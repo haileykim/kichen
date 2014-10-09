@@ -1,19 +1,20 @@
 
     <div class="media">
       <a class="pull-left" href="#">
-        <%= image_tag(gravatar_url(comment.user), width: 38, class: "img-circle") %>
+        <%= image_tag(gravatar_url(comment.user), width: 50, class: "img-circle") %>
       </a>
       <div class="media-body">
         <div class="media-heading">
-          <strong><%= link_to comment.user.first_name, comment.user %></strong>
+          <strong><%= link_to full_name_of(comment.user), comment.user %></strong>
         </div> 
         <p>
           <%= comment.content %>
+          <br>
           <span class="muted"><%= time_ago_in_words(comment.created_at) %> ago.</span>
           
           <% if current_user == comment.user %>
           <span style="font-size:12px;">
-            <%= link_to 'Delete', recipe_comment_path(@recipe, comment), method: :delete, remote: true %>  
+            <%= link_to '삭제', recipe_comment_path(@recipe, comment), method: :delete, remote: true %>  
           </span>
           <% end %>
         </p>

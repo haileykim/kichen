@@ -21,13 +21,12 @@
       <% @recipes.each do |recipe| %>
       <div class="recipe-item">
         <div class="grid-item-inner">
-          <a href="./recipes/<%= recipe.id %>">
-            <div class="recipe-item-image">
-              <%= image_for(recipe) %>
-            </div>
-          </a>
+          <div class="recipe-item-image">
+            <%= link_to image_for(recipe), recipe %>
+          </div>
+          
           <ul class="recipe-item-meta">
-            <li><%= truncate(recipe.name, length: 24) %></li>
+            <li><%= link_to truncate(recipe.name, length: 24), recipe %></li>
           </ul>
         </div>
       </div>
