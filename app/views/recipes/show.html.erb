@@ -69,16 +69,23 @@
 <!--  Instructions -->
   <div class="rec-main">
     <h3>Instructions</h3>
-      <p>
-        <%= @recipe.method %>
-      </p>
+      <% if @recipe.instructions.any?  %>
+        <ol>
+          <% @recipe.instructions.each do |instruction|  %>
+          <li><p> <%= instruction.content %> </p></li>
+          <% end  %>
+        </ol>
+      <% end %>
+
       <% unless @recipe.source.blank?  %> 
         <span style="font-size:16px;">참고 | <%= @recipe.source %></span>
       <% end  %>
 
+
 <!--  Edit/Destroy -->
     <% if @user.try(:admin?) %>
     <div class="admin_console">
+      <br>
       <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
       <%= link_to 'Destroy', @recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>

@@ -42,10 +42,10 @@
       <%= f.label :description, '간략 소개' %>
     </div>
     <div class="column2">
-      <%= f.text_area :description, rows: 8  %>
+      <%= f.text_area :description, rows: 5  %>
     </div>
   </div>
-
+<hr>
   <div class="input-choice">
     <div class="column1">
       <%= f.label :serving, '몇 인분?' %>
@@ -66,15 +66,19 @@
       <%= link_to_add_fields "<span class='glyphicon glyphicon-plus'></span> 필드 추가하기".html_safe, f, :ingredients %>
     </div>
   </div>
-  
+
   <div class="input-choice">
     <div class="column1">
-      <%= f.label :method, '조리법' %>
+      <%= f.label :instructions, '조리법' %>
     </div>
     <div class="column2">
-      <%= f.text_area :method, rows: 12 %>
+      <%= f.fields_for :instructions do |builder| %>
+      <%= render 'instruction_fields', f: builder %>
+      <% end %>
+      <%= link_to_add_fields "<span class='glyphicon glyphicon-plus'></span> 필드 추가하기".html_safe, f, :instructions %>
     </div>
   </div>
+
 
   <div class="input-choice">
     <div class="column1">

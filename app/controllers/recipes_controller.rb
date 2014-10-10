@@ -29,11 +29,16 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     3.times { @recipe.ingredients.build }
+    4.times { @recipe.instructions.build }
   end
 
   def edit
     if @recipe.ingredients.empty?
       3.times { @recipe.ingredients.build }
+    end
+
+    if @recipe.instructions.empty?
+      4.times { @recipe.instructions.build }
     end
     # Event tracking
     track_event "Editing recipe"
@@ -75,7 +80,9 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :method, :serving, :user, :source, :description, :image, tag_ids: [], 
+      params.require(:recipe).permit(:name, :serving, :user, :source, :description, :image, 
+        tag_ids: [], 
+        instructions_attributes: [:id, :content, :_destroy],
         ingredients_attributes: [:id, :food_item_name, :volume, :_destroy])
     end
 end
