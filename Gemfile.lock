@@ -27,6 +27,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    analytics-ruby (2.0.10)
     arel (5.0.1.20140414130214)
     autoprefixer-rails (3.1.0.20140911)
       execjs
@@ -162,6 +163,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  analytics-ruby (~> 2.0.0)
   autoprefixer-rails
   aws-sdk
   bcrypt (~> 3.1.7)
