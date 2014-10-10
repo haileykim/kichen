@@ -1,8 +1,8 @@
 <fieldset>
-<%= f.autocomplete_field :food_item_name, autocomplete_food_item_name_ingredients_path %>
+<%= f.autocomplete_field :food_item_name, autocomplete_food_item_name_ingredients_path, placeholder:'재료 이름', class: 'ingredient-field' %>
   
-      <%= f.text_field :volume %>
+      <%= f.text_field :volume, placeholder: '분량', class: 'ingredient-field' %>
       <%= f.hidden_field :_destroy %>
-      <%= link_to "<span class='glyphicon glyphicon-remove'></span>".html_safe, '#', class: "remove_fields" %>
+      <%= link_to "<span class='glyphicon glyphicon-remove' style='margin-top: 12px;'></span>".html_safe, '#', class: "remove_fields" %>
       <br>
 </fieldset>

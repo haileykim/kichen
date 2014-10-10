@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'tags/index'
+
+  root 'static_pages#home'
+
   resources :admins, only: :index
   
   namespace :admins do
@@ -21,13 +25,13 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :tags, only: [:index]
   resources :ingredients, only: [:autocomplete_food_item_name] do
     get :autocomplete_food_item_name, :on => :collection
   end
 
   resources :food_items
 
-  root 'recipes#index'
   resources :recipes do 
     resources :ingredients
     resources :favorites, only: [:create, :destroy]

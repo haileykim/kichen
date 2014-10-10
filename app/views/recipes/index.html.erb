@@ -1,48 +1,40 @@
+<div class="container"> 
+  <div class="archive-header">
+    <h1>Recipes</h1>
+      <div class="archive-subcats">
+        <ul>
+          <li>
+            <%= link_to "전체", recipes_path, class: is_active?(recipes_path) %>
+          </li>
+          <% @tags.each do |tag| %>
+          <li>
+            <%= link_to tag.name, tag_path(tag.name), class: is_active?(tag_path(tag.name)) %> 
+          </li>
+        <% end %>
+        </ul>
+       </div>
+  </div>
+
 <script type="text/javascript">
   mixpanel.track("Viewed Recipe Index");
 </script>
 
-<h1>Listing recipes</h1>
+  <div class="grid-list-container">
+    <div class="grid-list">
+      <% @recipes.each do |recipe| %>
+      <div class="recipe-item">
+        <div class="grid-item-inner">
+          <div class="recipe-item-image">
+            <%= link_to image_for(recipe), recipe %>
+          </div>
+          
+          <ul class="recipe-item-meta">
+            <li><%= link_to truncate(recipe.name, length: 24), recipe %></li>
+          </ul>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-
-<p>
-  <% @tags.each do |tag| %>
-  <h4> <%= link_to tag.name, tag_path(tag.name) %>
-       (<%= tag.recipes_count %>)</h4>
-  <% end  %>
-</p>
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Method</th>
-      <th>Serving</th>
-      <th>Source</th>
-      <th>Description</th>
-       <th>Tags</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= recipe.name %></td>
-        <td><%= recipe.method %></td>
-        <td><%= recipe.serving %></td>
-        <td><%= recipe.source %></td>
-        <td><%= recipe.description %></td>
-        <td><%= tags_for(recipe) %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Recipe', new_recipe_path %>

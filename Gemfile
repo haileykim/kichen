@@ -48,3 +48,5 @@ gem 'byebug'
 gem 'figaro'
 
 gem 'event_tracker'
+
+gem 'rails-jquery-tokeninput'

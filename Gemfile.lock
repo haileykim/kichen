@@ -110,6 +110,8 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.6)
       sprockets-rails (~> 2.0)
+    rails-jquery-tokeninput (0.2.2)
+      jquery-rails
     rails4-autocomplete (1.1.1)
       rails (>= 3.0)
     rails_12factor (0.0.2)
@@ -180,6 +182,7 @@ DEPENDENCIES
   paperclip (~> 4.2)
   pg
   rails (= 4.1.6)
+  rails-jquery-tokeninput
   rails4-autocomplete
   rails_12factor
   sass-rails (~> 4.0.3)

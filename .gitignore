@@ -15,9 +15,6 @@
 /log/*.log
 /tmp
 
-# Ignore all data
-/data
-
 # Ignore all image files uploaded to public/system/
 public/system/
 

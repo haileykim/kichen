@@ -15,8 +15,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.includes(:user, :ingredients, :food_items, :comments, :favorites, :fans).find(params[:id])
     @comment = @recipe.comments.new
 
-    
-
+  
    # Because @recipe already includes its associated entities, no more need the followings. 
    # @comments = @recipe.comments
    # @fans = @recipe.fans
@@ -29,11 +28,16 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     3.times { @recipe.ingredients.build }
+    4.times { @recipe.instructions.build }
   end
 
   def edit
     if @recipe.ingredients.empty?
       3.times { @recipe.ingredients.build }
+    end
+
+    if @recipe.instructions.empty?
+      4.times { @recipe.instructions.build }
     end
     # Event tracking
     track_event "Editing recipe"
@@ -42,6 +46,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
 
     if @recipe.save
       redirect_to @recipe, notice: 'Recipe was successfully created.'
@@ -74,7 +79,9 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :method, :serving, :source, :description, :image, tag_ids: [], 
+      params.require(:recipe).permit(:name, :serving, :user, :source, :description, :image, 
+        :tag_tokens,
+        instructions_attributes: [:id, :content, :_destroy],
         ingredients_attributes: [:id, :food_item_name, :volume, :_destroy])
     end
 end

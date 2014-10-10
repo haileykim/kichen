@@ -1,12 +1,15 @@
+<div class="main-container">
+
 <script>
   mixpanel.track("Viewed Recipe Form");
 </script>
 
+
 <%= form_for(@recipe) do |f| %>
+<!-- Error Message -->  
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
-
+      <h3><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h3>
       <ul>
       <% @recipe.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -15,48 +18,92 @@
     </div>
   <% end %>
 
-  
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :tag %><br>
-    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :source %><br>
-    <%= f.text_field :source %>
+<!-- Form -->  
+  <div class="input-choice">
+    <div class="column1">
+      <%= f.label :name, '요리 이름' %>
+    </div>
+    <div class="column2">
+      <%= f.text_field :name, class: 'text-field' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :ingredients %><br>
-  
-    <%= f.fields_for :ingredients do |builder| %>
+  <div class="input-choice">
+    <div class="column1">
+      <%= f.label :image, '요리 사진' %>
+    </div>
+    <div class="column2">
+      <%= f.file_field :image, class: 'file-field' %>
+    </div>
+  </div>
+
+  <div class="input-choice">
+    <div class="column1">
+      <%= f.label :description, '간략 소개' %>
+    </div>
+    <div class="column2">
+      <%= f.text_area :description, rows: 5  %>
+    </div>
+  </div>
+
+  <div class="input-choice">
+    <div class="column1">
+      <%= f.label :tag_tokens, '태그' %>
+    </div>
+    <div class="column2">
+      <%= f.text_field :tag_tokens, data: {load: @recipe.tags} %>
+    </div>
+  </div>
+
+<hr>
+  <div class="input-choice">
+    <div class="column1">
+      <%= f.label :serving, '몇 인분?' %>
+    </div>
+    <div class="column2">
+      <%= f.number_field :serving, class: 'ingredient-field' %>
+    </div>
+  </div>
+
+  <div class="input-choice">
+    <div class="column1">
+      <%= f.label :ingredients, '재료' %>
+    </div>
+    <div class="column2">
+      <%= f.fields_for :ingredients do |builder| %>
       <%= render 'ingredient_fields', f: builder %>
-    <% end %>
-    <%= link_to_add_fields "<span class='glyphicon glyphicon-plus'></span> Add Field".html_safe, f, :ingredients %>
+      <% end %>
+      <%= link_to_add_fields "<span class='glyphicon glyphicon-plus'></span> 필드 추가하기".html_safe, f, :ingredients %>
+    </div>
   </div>
-  
-  <div class="field">
-    <%= f.label :method %><br>
-    <%= f.text_area :method %>
+
+  <div class="input-choice">
+    <div class="column1">
+      <%= f.label :instructions, '조리법' %>
+    </div>
+    <div class="column2">
+      <%= f.fields_for :instructions do |builder| %>
+      <%= render 'instruction_fields', f: builder %>
+      <% end %>
+      <%= link_to_add_fields "<span class='glyphicon glyphicon-plus'></span> 필드 추가하기".html_safe, f, :instructions %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :serving %><br>
-    <%= f.number_field :serving %>
+
+
+  <div class="input-choice">
+    <div class="column1">
+      <%= f.label :source, '참고자료' %>
+    </div>
+    <div class="column2">
+      <%= f.text_field :source, class: 'text-field' %>
+    </div>
   </div>
-  
- 
-  <div class="actions">
-    <%= f.submit %>
+
+
+
+
+ <div class="submit-box">
+    <%= f.submit '포스트!', class: 'btn btn-danger btn-xlg' %>
   </div>
 <% end %>
+</div>

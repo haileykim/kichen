@@ -13,10 +13,13 @@
  *= require_tree .
  *= require_self
  *= require jquery-ui
+ *= require token-input-facebook
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+
 
 html {
   position: relative;
@@ -24,12 +27,54 @@ html {
 }
 
 body {
-	padding-top: 60px;
-	background: #efefef;
+    padding-top: 60px;
+	background: #ebe8dc;
+	font-size: 16px;
+	font-family: 'Nanum Gothic';
 }
 
 .container#body {
 	padding-bottom: 80px;
+}
+
+.container {
+	width: 1200px;
+}
+
+.narrow-container {
+	max-width: 800px;
+	width: 70%;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.center-container {
+	max-width: 500px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+
+	 .input-choice {
+    margin-bottom: 15px;
+
+    .column1 {
+      width: 30%;
+      margin: 0 10px 5px 0;
+      display: inline-block;
+      float: left;
+      padding-top: 10px;
+    }
+
+    .column2 {
+      width: 65%;
+      margin-right: 10px;
+      display: inline-block;
+      max-width: none;
+      }
+     }
 }
 
 hr {
@@ -40,29 +85,99 @@ ul {
 	list-style-type: none;
 }
 
-/* layout header nav */
-
-.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand { 
-	color: pink;
-	font-weight: lighter;
-	font-size: 24px;
+h1 {
+	font-size: 48px;
+	font-weight: 200;
 }
 
-/* redefine navbar color theme */
-.navbar-inverse {
-	background-color: #DB4343;
-	border-color: #B8B8B8;
+/* layout header nav */
+
+.navbar .container {
+	margin-left: 0;
+	margin-right: 0;
+	width: 100%;
+}
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand { 
+    font-family: 'Lobster', cursive; 
+	font-size: 30px;
+	color: #ffffff;
+	margin-left: 15px;
+	padding-right: 30px;
+	box-shadow: inset -1px 0 1px -1px rgba(255,255,255,.5);
+}
+
+.navbar-brand {
+    line-height: 32px;
+    height: 65px;
 }
 
 .navbar-inverse .navbar-nav > li > a {
-	color: #DDD;
-	font-weight: 300;
-}
-/* */
+	display: block;
+	color: #ffffff;
+	padding: 22px;
 
-.admin_console {
-	padding-top: 15px;
 }
+
+.navbar-inverse {
+	background-color: #D64B3E;
+	border: none;
+	box-shadow: 0 3px 6px rgba(0,0,0,.16);
+}
+
+
+.dropdown-menu {
+	font-size: 16px;
+	padding: 10px 0;
+
+	li > a {
+		padding: 8px 20px;
+	}
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+	background-color: #D64B3E;
+	color: white;
+}
+
+/* Add Button Style */
+
+.btn-xlg {
+padding: 15px 30px;
+font-size: 20px;
+line-height: 1.33;
+border-radius: 6px;
+}
+
+.btn-header {
+	color: #ffffff;
+	background-color: transparent;
+	border: 2.5px solid #ffffff;
+	font-size: 16px;
+	
+	&:hover { color: #ffffff; }
+
+}
+
+/* Redesign search bar */
+
+.archive-search-text {
+position: relative;
+width: 100%;
+float: left;
+border-radius: 40px;
+font-weight: 300;
+border: 1px solid #ccc;
+-webkit-transition: all .3s ease-in-out;
+transition: all .3s ease-in-out;
+color: #222;
+}
+
+.navbar-form {
+	margin-top: 14px;
+}
+
+/* Home */
 
 .muted {
 	font-size: 12px;
@@ -80,4 +195,36 @@ img.image-medium {
   /* Set the fixed height of the footer here */
   height: 60px;
   background-color: #dbdbdb;
+}
+
+/* Tag field */
+
+ul.token-input-list-facebook {
+  width: 100% !important;
+  border: 1px solid #ccc !important;
+  font-size: 16px !important;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  padding: 3px !important;
+}
+
+li.token-input-token-facebook {
+	padding: 3px 8px !important;
+	background-color: #333 !important;
+	color: #fff !important;
+	border: 1px solid #333 !important;
+	font-size: 14px !important;
+	border-radius: 20px !important;
+	-webkit-border-radius: 20px !important;
+	-moz-border-radius: 20px !important;
+}
+
+div.token-input-dropdown-facebook ul li.token-input-selected-dropdown-item-facebook {
+	background-color: #D64B3E !important;
+	font-size: 14px !important;
+	padding: 10px 15px !important;
+}
+
+.token-input-dropdown-facebook {
+	width: 579px !important;
 }

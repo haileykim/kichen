@@ -1,0 +1,43 @@
+<!-- Jumbotron -->
+
+
+<section class="teaser">
+  <ul class="carousel">
+    <li class="responsive-image image-loaded" style="background-image: url(http://tastefoodblog.files.wordpress.com/2012/10/oyster-ingredients-tf.jpg);">
+    <div class="wrapper-home">
+        <h1>당신의 보물 레시피<br>
+            이제 잊지 말고 기록하세요!
+        </h1>
+        <div id="button">
+         <a class="btn btn-xlg btn-danger" href="/signup" role="button">시작하기</a>
+      </div>        
+    </div>
+  </ul>
+</section>
+
+<div style="clear:both"></div>
+
+<div class="wrap rec-heading">
+  <div class="rec-wide">
+    <h3 style="text-align:center; margin-bottom: 40px;">Popular Recipes</h3>
+    <div class="grid-list-container">
+       <div class="grid-list">
+          <% @recipes.each do |recipe| %>
+          <div class="recipe-item">
+            <div class="grid-item-inner">
+              <a href="./recipes/<%= recipe.id %>">
+                <div class="recipe-item-image">
+                <%= image_for(recipe) %>
+                </div>
+              </a>
+              <ul class="recipe-item-meta">
+                <li><%= truncate(recipe.name, length: 24) %></li>
+              </ul>
+            </div>
+          </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
+

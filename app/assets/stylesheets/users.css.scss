@@ -1,3 +1,25 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.signin-box {
+	margin: 20px 0px;
+	text-align: center;
+}
+
+.profile-image {
+	display: inline-block;
+	float: left;
+	margin-right: 30px;
+}
+
+.user-h3 {
+	text-transform: uppercase;
+	letter-spacing: .2rem;
+	text-align: left;
+	font-weight: 200;
+	color: #D64B3E;
+	font-size: 24px;
+	margin-bottom: 15px;
+	padding-left: .9375rem;
+}

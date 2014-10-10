@@ -1,3 +1,461 @@
 // Place all the styles related to the recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Index */
+
+.archive-header {
+width: 100%;
+margin-top: 30px;
+max-width: 75rem;
+overflow: hidden;
+}
+
+.archive-header h1 {
+position: relative;
+padding-left: .9375rem;
+padding-right: .9375rem;
+float: left;
+overflow: hidden;
+margin-bottom: 30px;
+text-transform: uppercase;
+}
+
+.archive-subcats {
+position: relative;
+padding-left: .9375rem;
+padding-right: .9375rem;
+width: 100%;
+float: left;
+margin-bottom: 40px;
+overflow: hidden;
+}
+
+.archive-subcats ul {
+width: 100%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 0;
+max-width: 75rem;
+margin-bottom: 0;
+padding-bottom: .375rem;
+line-height: 1;
+padding-left: 0;
+}
+
+.archive-subcats li {
+display: inline;
+float: left;
+line-height: 1;
+list-style: none;
+}
+
+.archive-subcats li a {
+display: block;
+padding: 10px 18px 10px 18px;
+margin-bottom: .75rem;
+margin-right: .5rem;
+border-radius: 40px;
+font-size: 14px;
+color: #f0f0f0;
+background: #333;
+-webkit-transition: all .3s ease-in-out;
+transition: all .3s ease-in-out;
+text-transform: uppercase;
+}
+
+.archive-subcats li a.active, .archive-subcats li a:hover {
+color: #fff;
+background: #D64B3E;
+text-decoration: none;
+}
+
+	
+.grid-list-container {
+position: relative;
+padding-left: .9375rem;
+padding-right: .9375rem;
+width: 100%;
+float: left;
+}
+
+.grid-list {
+width: auto;
+margin-left: -.9375rem;
+margin-right: -.9375rem;
+margin-top: 0;
+margin-bottom: 0;
+max-width: none;
+position: relative;
+height: 0px;
+}
+
+.grid-item, .recipe-item {
+position: relative;
+padding-left: .9375rem;
+padding-right: .9375rem;
+width: 33.33333%;
+float: left;
+margin-bottom: 2rem;
+}
+
+.recipe-item .grid-item-inner {
+overflow: hidden;
+display: block;
+position: relative;
+border-radius: 6px;
+text-align: center;
+-webkit-transform-style: preserve-3d;
+transform-style: preserve-3d;
+background: #fff;
+-webkit-box-shadow: 0 3px 5px rgba(0,0,0,.15);
+box-shadow: 0 3px 5px rgba(0,0,0,.15);
+}
+
+.recipe-item .grid-item-inner a {
+display: block;
+-webkit-transform-style: preserve-3d;
+transform-style: preserve-3d;
+position: relative;
+text-align: center;
+}
+
+.recipe-item-image {
+display: block;
+width: 100%;
+overflow: hidden;
+position: relative;
+}
+
+.recipe-item-image img {
+vertical-align: middle;
+width: 100%;
+border-radius: 6px;
+height: 220px;
+}
+
+.recipe-item-meta {
+list-style: none;
+background: #fff;
+padding: 1.125rem .9375rem;
+overflow: hidden;
+
+  li {
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  a, a:hover {
+    color: #333;
+    text-decoration: none;
+  }
+}
+
+
+/* Show */
+
+.recipe-header {
+width: 100%;
+margin-top: 30px;
+overflow: hidden;
+text-align: center;
+margin-bottom: 30px;
+}
+
+.recipe-header h1 {
+margin-bottom: 20px;
+font-size: 40px;
+font-weight: bold
+}
+
+.recipe-owner a, .recipe-owner a:hover {
+	text-decoration: none;
+	color: #333;
+}
+
+section.teaser {
+position: relative;
+height: 560px;
+overflow: hidden;
+}
+
+section.teaser .carousel {
+width: 100%;
+height: 100%;
+display: block;
+position: absolute;
+background-color: #f0efea;
+padding-left: 0px;
+}
+
+section.teaser .carousel>li:first-child {
+display: block;
+width: 100%;
+height: 100%;
+-moz-background-size: cover;
+-o-background-size: cover;
+-webkit-background-size: cover;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: 50% 50%;
+}
+
+section.teaser .carousel>li:before {
+/* background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.2)),to(rgba(0,0,0,.3))); */
+background: -webkit-linear-gradient(top,rgba(0,0,0,.2),rgba(0,0,0,.3));
+background: linear-gradient(to bottom,rgba(0,0,0,.2),rgba(0,0,0,.3));
+position: absolute;
+content: " ";
+width: 100%;
+height: 100%;
+display: block;
+overflow: hidden;
+top: 0;
+left: 0;
+z-index: 12;
+}
+
+section.teaser .wrapper {
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+position: relative;
+padding: 200px 0;
+margin: auto;
+z-index: 111;
+max-width: 550px;
+text-align: center;
+vertical-align: middle;
+overflow: hidden;
+color: #ffffff;
+
+  h1 {
+  	font-size: 48px;
+	margin-bottom: 1.875rem;
+	line-height: 1.5;
+  }
+
+  a, a:hover {
+  	color: #ffffff;
+  	text-decoration: none;
+  	font-size: 20px;
+  }
+}
+
+.wrap {
+width: 100%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 0;
+margin-bottom: 0;
+max-width: 1200px;
+font-size: 18px;
+	.archive-subcats {
+	margin: 15px 0px 15px 0px;
+	padding-left: 0px;
+	}
+}
+
+.rec-heading {
+border-bottom: 1px solid #ddd;
+overflow: hidden;
+line-height: 1.8;
+padding-bottom: 30px;
+
+    h3 {
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: left;
+    font-weight: 200;
+    color: #D64B3E;
+    font-size: 24px;
+    margin-bottom: 15px;
+    }
+}
+
+.rec-main {
+position: relative;
+padding-left: .9375rem;
+padding-right: 40px;
+width: 66.66667%;
+margin-left: 4.16667%!important;
+float: left;
+padding-top: 2.5rem;
+padding-bottom: 0;
+  
+  ol {
+    padding-left: 24px;
+  }
+
+  li {
+      font-weight: bold;
+    color: #D64B3E;
+  }
+  p {
+    font-weight: normal; 
+    color: #333;
+  }
+}
+
+.rec-sidebar {
+position: relative;
+padding-left: .9375rem;
+padding-right: .9375rem;
+width: 25%;
+float: left;
+padding-top: 2.1875rem;
+padding-bottom: 1.25rem;
+
+  ul {
+  padding-left: 0px;
+  padding-top: 15px;
+  }
+
+  a {
+  color: #333;
+  font-weight: bold;
+  }
+}
+
+.fan {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* Comments */
+
+.media-heading a {
+  color: #333;
+}
+
+.media-body {
+
+  p {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    border-radius: 6px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    background: #fff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+  }
+
+  .input-group {
+    width: 100%;
+  }
+
+  .form-control {
+    font-size: 16px;
+    padding: 20px;
+  }
+}
+
+.comment-login {
+  text-align: center;
+  margin: 30px auto;
+  font-weight: bold;
+}
+
+/* New */
+
+.main-container {
+  margin: 15px 0px 0px 0px;
+  padding: 10px 0;
+
+  .input-choice {
+    margin-bottom: 30px;
+
+    .column1 {
+      width: 20%;
+      margin: 0 10px 5px 0;
+      display: inline-block;
+      float: left;
+      padding-top: 10px;
+    }
+
+    .column2 {
+      width: 77%;
+      margin-right: 10px;
+      display: inline-block;
+      max-width: none;
+
+      a, a:hover {
+        color: #D64B3E;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.text-field {
+  position: relative;
+  width: 100%;
+  float: left;
+  border-radius: 5px;
+  font-weight: 300;
+  border: 1px solid #ccc;
+  color: #222;
+  height: 40px;
+  padding: 6px 12px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.file-field {
+  position: relative;
+  width: 100%;
+  float: left;
+  border-radius: 5px;
+  font-weight: 300;
+  color: #222;
+  height: 40px;
+  padding-top: 6px;
+}
+
+.ingredient-field {
+  position: relative;
+  width: 30%;
+  float: left;
+  border-radius: 5px;
+  font-weight: 300;
+  border: 1px solid #ccc;
+  color: #222;
+  height: 40px;
+  padding: 6px 12px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+.instruction_field  {
+  margin-bottom: 10px;
+}
+
+.remove_fields {
+  margin-left: 10px;
+}
+
+.add-fields {
+  color: #D64B3E;
+  margin-left: 10px;
+}
+
+textarea {
+  position: relative;
+  width: 100%;
+  float: left;
+  border-radius: 5px;
+  font-weight: 300;
+  border: 1px solid #ccc;
+  color: #222;
+  padding: 6px 12px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.submit-box {
+  text-align: center;
+  margin: 50px 0px;
+}
