@@ -15,8 +15,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.includes(:user, :ingredients, :food_items, :comments, :favorites, :fans).find(params[:id])
     @comment = @recipe.comments.new
 
-    
-
+  
    # Because @recipe already includes its associated entities, no more need the followings. 
    # @comments = @recipe.comments
    # @fans = @recipe.fans
@@ -81,7 +80,7 @@ class RecipesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
       params.require(:recipe).permit(:name, :serving, :user, :source, :description, :image, 
-        tag_ids: [], 
+        :tag_tokens,
         instructions_attributes: [:id, :content, :_destroy],
         ingredients_attributes: [:id, :food_item_name, :volume, :_destroy])
     end

@@ -5,3 +5,8 @@
 jQuery ->
   $('#recipe_ingredients_attributes_0_food_name').autocomplete
     source: $('#recipe_ingredients_attributes_0_food_name').data('autocomplete-source')
+
+jQuery ->
+  $('#recipe_tag_tokens').tokenInput '/tags.json',
+    theme: 'facebook'
+    prePopulate: $('#recipe_tag_tokens').data('load')

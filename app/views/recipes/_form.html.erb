@@ -45,6 +45,16 @@
       <%= f.text_area :description, rows: 5  %>
     </div>
   </div>
+
+  <div class="input-choice">
+    <div class="column1">
+      <%= f.label :tag_tokens, '태그' %>
+    </div>
+    <div class="column2">
+      <%= f.text_field :tag_tokens, data: {load: @recipe.tags} %>
+    </div>
+  </div>
+
 <hr>
   <div class="input-choice">
     <div class="column1">
@@ -89,16 +99,8 @@
     </div>
   </div>
 
-  <!-- 태그 autocomplete-field로 처리해야 함 
-  <div class="input-choice">
-    <div class="column1">
-      <%= f.label :tag, '태그' %>
-    </div>
-    <div class="column2">
-      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) %>
-    </div>
-  </div>
--->
+
+
 
  <div class="submit-box">
     <%= f.submit '포스트!', class: 'btn btn-danger btn-xlg' %>

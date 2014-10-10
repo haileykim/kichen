@@ -15,5 +15,6 @@
 //= require autocomplete-rails
 //= require jquery_ujs
 //= require turbolinks
+//= require rails-jquery-tokeninput
 //= require_tree .
 //= require bootstrap-sprockets

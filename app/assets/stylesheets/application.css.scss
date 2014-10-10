@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require jquery-ui
+ *= require token-input-facebook
  */
 
 @import "bootstrap-sprockets";
@@ -194,4 +195,36 @@ img.image-medium {
   /* Set the fixed height of the footer here */
   height: 60px;
   background-color: #dbdbdb;
+}
+
+/* Tag field */
+
+ul.token-input-list-facebook {
+  width: 100% !important;
+  border: 1px solid #ccc !important;
+  font-size: 16px !important;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  padding: 3px !important;
+}
+
+li.token-input-token-facebook {
+	padding: 3px 8px !important;
+	background-color: #333 !important;
+	color: #fff !important;
+	border: 1px solid #333 !important;
+	font-size: 14px !important;
+	border-radius: 20px !important;
+	-webkit-border-radius: 20px !important;
+	-moz-border-radius: 20px !important;
+}
+
+div.token-input-dropdown-facebook ul li.token-input-selected-dropdown-item-facebook {
+	background-color: #D64B3E !important;
+	font-size: 14px !important;
+	padding: 10px 15px !important;
+}
+
+.token-input-dropdown-facebook {
+	width: 579px !important;
 }
