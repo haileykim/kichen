@@ -9,7 +9,7 @@
 <!-- Main Image -->
 <section class="teaser">
   <ul class="carousel">
-    <li class="responsive-image image-loaded" style="background-image: url(<%= @recipe.image %>);">
+    <li class="responsive-image image-loaded" style="background-image: url(<%= @recipe.image.url %>);">
     <div class="wrapper">
         <h1><%= @recipe.name %></h1>
         <%= link_to full_name_with_gravatar(@recipe.user), @recipe.user %>
