@@ -1,19 +1,35 @@
-<div class="col-md-2">
-	<%= image_tag(gravatar_url(@user), width: 120, class: "img-circle") %>
+<div class="container">
+ 
+  <div class="archive-header">
+  	<div class="profile-image">
+     <%= image_tag(gravatar_url(@user), width: 120, class: "img-circle") %>
+ 	</div>
+    <h1><%= full_name_of(@user) %></h1>
+  </div>
+
+<hr>
+
+  <div class="grid-list-container">
+    <div class="grid-list">
+    <h3 class="user-h3">My Recipes</h3>
+      <% @recipes.each do |recipe| %>
+      <div class="recipe-item">
+        <div class="grid-item-inner">
+          <div class="recipe-item-image">
+            <%= link_to image_for(recipe), recipe %>
+          </div>
+          
+          <ul class="recipe-item-meta">
+            <li><%= link_to truncate(recipe.name, length: 24), recipe %></li>
+          </ul>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
 </div>
 
-<div class="col-md-10">
-	<h1><%= full_name_of(@user) %></h1>
-	
-	<h3>Recipes Created (<%= @recipes.count %>)</h3>
-		<% @recipes.each do |recipe| %>
-			<div><%= link_to recipe.name, recipe %></div>
-		<% end %>
 	
 	
-	<h3>My Favs (<%= @favorites.count %>)</h3>
-		<% @favorites.each do |favorite| %>
-			<div><%= link_to favorite.name, favorite %></div>
-		<% end %>
 	
-</div>

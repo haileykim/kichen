@@ -60,7 +60,7 @@ body {
     margin-bottom: 15px;
 
     .column1 {
-      width: 25%;
+      width: 30%;
       margin: 0 10px 5px 0;
       display: inline-block;
       float: left;
@@ -122,6 +122,21 @@ h1 {
 	background-color: #D64B3E;
 	border: none;
 	box-shadow: 0 3px 6px rgba(0,0,0,.16);
+}
+
+
+.dropdown-menu {
+	font-size: 16px;
+	padding: 10px 0;
+
+	li > a {
+		padding: 8px 20px;
+	}
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+	background-color: #D64B3E;
+	color: white;
 }
 
 /* Add Button Style */
