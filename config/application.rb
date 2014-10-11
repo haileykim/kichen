@@ -17,12 +17,13 @@ module Kitchen
     # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :ko
 
     config.time_zone = 'Seoul'
     config.active_record.default_timezone = :local
     config.active_record.record_timestamps = true
+
 
     # Event Tracker Gem to use Mixpanel
     config.event_tracker.mixpanel_key = "fea91638a4218a3e280bf576f1e96697"
