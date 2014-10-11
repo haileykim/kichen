@@ -20,6 +20,10 @@ module Kitchen
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.time_zone = 'Seoul'
+    config.active_record.default_timezone = :local
+    config.active_record.record_timestamps = true
+
     # Event Tracker Gem to use Mixpanel
     config.event_tracker.mixpanel_key = "fea91638a4218a3e280bf576f1e96697"
   end
