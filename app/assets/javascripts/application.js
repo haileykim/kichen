@@ -18,3 +18,19 @@
 //= require rails-jquery-tokeninput
 //= require_tree .
 //= require bootstrap-sprockets
+
+// Infinite scrolling: 
+// See http://richonrails.com/articles/endless-scrolling
+$(document).ready(function() {
+  if ($('.pagination').length) {
+    $(window).scroll(function() {
+      var url = $('.pagination .next_page').attr('href');
+      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        $('.pagination').text("Please Wait...");
+        return $.getScript(url);
+      }
+    });
+    return $(window).scroll();
+  }
+});
+

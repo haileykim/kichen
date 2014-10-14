@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   def index
     @tags = Tag.with_recipes_count
     @food_items = FoodItem.all
-    @recipes = Recipe.where(nil)
+    @recipes = Recipe.where(nil).order('created_at desc').paginate(page: params[:page], per_page: 18)
     @recipes = @recipes.search(params[:search]) if params[:search]
     @recipes = @recipes.tagged_with(params[:tag]) if params[:tag]
     @recipes = @recipes.with_ingredient(params[:ingredient]) if params[:ingredient]

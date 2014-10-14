@@ -21,20 +21,13 @@
 
   <div class="grid-list-container">
     <div class="grid-list">
-      <% @recipes.each do |recipe| %>
-      <div class="recipe-item">
-        <div class="grid-item-inner">
-          <div class="recipe-item-image">
-            <%= link_to image_for(recipe), recipe %>
-          </div>
-          
-          <ul class="recipe-item-meta">
-            <li><%= link_to truncate(recipe.name, length: 24), recipe %></li>
-          </ul>
-        </div>
-      </div>
-      <% end %>
+      <%= render @recipes %>
     </div>
   </div>
+
+  <div>
+    <%= will_paginate @recipes %> 
+  </div>
+
 </div>
 
