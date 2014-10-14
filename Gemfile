@@ -8,6 +8,7 @@ group :development, :test do
 	gem 'sqlite3'
 	gem 'spring'
 	gem 'faker', '~> 1.4.2'
+	gem 'traceroute' # Detects routes that are not used, which helps clean up the route file
 end
 
 group :production do

@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   resources :admins, only: :index
   
   namespace :admins do
-    resources :recipes
-    resources :food_items
-    resources :comments
-    resources :users
+    resources :recipes, except: [:new, :show, :destroy]
+    resources :food_items, except: [:new, :show, :destroy]
+    resources :comments, only: :index
+    resources :users, only: :index
     resources :favorites
   end
 
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   resources :recipes do 
     resources :ingredients
     resources :favorites, only: [:create, :destroy]
-    resources :comments
+    resources :comments, only: [:create, :destroy]
   end
 
   get 'tags/:tag' => 'recipes#index', as: :tag
