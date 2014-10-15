@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :recipes, except: [:new, :show, :destroy]
     resources :food_items, except: [:new, :show, :destroy]
     resources :comments, only: :index
-    resources :users, only: :index
+    resources :users, only: [:index, :edit, :update, :destroy]
     resources :favorites
   end
 
