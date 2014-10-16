@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hailey's Kitchen</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon.ico' %>
-  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>  
+  <%= display_meta_tags site: "Hailey's Kitchen" %>
+  <%= display_meta_tags description: "Hailey가 직접 테스트하고 엄선한 최고의 레시피 모음" %>
+  <%= display_meta_tags keywords: "레시피, 요리법, 일본식 가정요리, 이탈리안 요리, 파스타" %>
 </head>
 <body>
+
   <%= render 'layouts/header' %>
     
   <% if notice %>

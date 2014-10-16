@@ -51,3 +51,6 @@ gem 'figaro'
 gem 'event_tracker'
 
 gem 'rails-jquery-tokeninput'
+
+# SEO; refer to github.com/kpumuk/meta-tags
+gem 'meta-tags' 

@@ -4,7 +4,8 @@
   	<div class="profile-image">
      <%= image_tag(gravatar_url(@user), width: 120, class: "img-circle") %>
  	</div>
-    <h1><%= full_name_of(@user) %></h1>
+  <!-- Set page name to append to site title -->
+    <h1><%= title full_name_of(@user) %></h1>
   </div>
 
 <hr>
